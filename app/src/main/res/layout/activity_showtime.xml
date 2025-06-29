@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F8F8">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- === CGV Crescent Mall === -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp"
+            android:background="@android:color/white"
+            android:elevation="2dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CGV Crescent Mall"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#000" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tầng 5 - Crescent Mall, Q.7"
+                android:textSize="14sp"
+                android:textColor="#666" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/buttonCgv10"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="10:00"
+                    android:backgroundTint="#E0F7FA"
+                    android:textColor="#000" />
+
+                <Button
+                    android:id="@+id/buttonCgv17"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="17:00"
+                    android:layout_marginStart="8dp"
+                    android:backgroundTint="#E0F7FA"
+                    android:textColor="#000" />
+
+                <Button
+                    android:id="@+id/buttonCgv20"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="20:00"
+                    android:layout_marginStart="8dp"
+                    android:backgroundTint="#E0F7FA"
+                    android:textColor="#000" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- === Lotte Nowzone === -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp"
+            android:background="@android:color/white"
+            android:elevation="2dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lotte Nowzone"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#000" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tầng 5 - TTTM Nowzone, 235 Nguyễn Văn Cừ, Q.1"
+                android:textSize="14sp"
+                android:textColor="#666" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/buttonLotte10"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="10:00"
+                    android:backgroundTint="#E0F7FA"
+                    android:textColor="#000" />
+
+                <Button
+                    android:id="@+id/buttonLotte17"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="17:00"
+                    android:layout_marginStart="8dp"
+                    android:backgroundTint="#E0F7FA"
+                    android:textColor="#000" />
+
+                <Button
+                    android:id="@+id/buttonLotte20"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="20:00"
+                    android:layout_marginStart="8dp"
+                    android:backgroundTint="#E0F7FA"
+                    android:textColor="#000" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- === Galaxy Tân Bình === -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp"
+            android:background="@android:color/white"
+            android:elevation="2dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Galaxy Tân Bình"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#000" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="246 Nguyễn Hồng Đào, phường 13, quận Tân Bình"
+                android:textSize="14sp"
+                android:textColor="#666" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/buttonGalaxy10"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="10:00"
+                    android:backgroundTint="#E0F7FA"
+                    android:textColor="#000" />
+
+                <Button
+                    android:id="@+id/buttonGalaxy17"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="17:00"
+                    android:layout_marginStart="8dp"
+                    android:backgroundTint="#E0F7FA"
+                    android:textColor="#000" />
+
+                <Button
+                    android:id="@+id/buttonGalaxy20"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="20:00"
+                    android:layout_marginStart="8dp"
+                    android:backgroundTint="#E0F7FA"
+                    android:textColor="#000" />
+            </LinearLayout>
+        </LinearLayout>
+        <Button
+            android:id="@+id/btnChooseSeat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chọn ghế"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#2196F3"
+            android:visibility="gone"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="32dp" />
+
+    </LinearLayout>
+</ScrollView>
