@@ -43,7 +43,7 @@ public class AddFilm extends AppCompatActivity {
     FirebaseAuth mAuth;
     FirebaseFirestore db;
 
-    EditText editTextTitle, editTextDescription, editTextPrices, editTextActors, editTextProducer ;
+    EditText editTextTitle, editTextDescription, editTextActors, editTextProducer ;
     TextView editTextYear;
     ImageView imageView, btnBack;
     AppCompatButton btnAdd;
@@ -74,7 +74,6 @@ public class AddFilm extends AppCompatActivity {
         editTextYear = findViewById(R.id.year);
         spinnerGenre = findViewById(R.id.editText3);
         imageView = findViewById(R.id.imageView);
-        editTextPrices = findViewById(R.id.editText4);
         editTextActors = findViewById(R.id.editText0);
         spinnerCountries = findViewById(R.id.spinnerCountries);
         btnAdd = findViewById(R.id.btn_add);
@@ -115,10 +114,9 @@ public class AddFilm extends AppCompatActivity {
             String genre = spinnerGenre.getSelectedItem().toString();
             String actors = editTextActors.getText().toString().trim();
             String year = editTextYear.getText().toString().trim();
-            String prices = editTextPrices.getText().toString().trim();
             String selectedCountry = spinnerCountries.getSelectedItem().toString();
 
-            if (title.isEmpty() || description.isEmpty() || genre.isEmpty() || prices.isEmpty()|| actors.isEmpty()|| year.isEmpty()|| producer.isEmpty()) {
+            if (title.isEmpty() || description.isEmpty() || genre.isEmpty()|| actors.isEmpty()|| year.isEmpty()|| producer.isEmpty()) {
                 Toast.makeText(this, "Vui lòng nhập đầy đủ thông tin!", Toast.LENGTH_SHORT).show();
                 return;
             }
@@ -130,7 +128,6 @@ public class AddFilm extends AppCompatActivity {
             movieData.put("producer", producer);
             movieData.put("genre", genre);
             movieData.put("posterUrl", imageUri != null ? imageUri.toString() : "");
-            movieData.put("prices", prices);
             movieData.put("year", year);
             movieData.put("country", selectedCountry);
             movieData.put("status", "Đang chiếu");
@@ -143,7 +140,6 @@ public class AddFilm extends AppCompatActivity {
                         editTextActors.setText("");
                         editTextDescription.setText("");
                         editTextProducer.setText("");
-                        editTextPrices.setText("");
                         spinnerGenre.setSelection(0);
                         spinnerCountries.setSelection(0);
                         editTextYear.setText("");

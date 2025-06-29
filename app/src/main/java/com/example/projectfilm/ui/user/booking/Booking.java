@@ -1,7 +1,6 @@
 package com.example.projectfilm.ui.user.booking;
 
 public class Booking {
-<<<<<<< HEAD
     private String cinema;
     private String time;
     private String seats;
@@ -11,64 +10,71 @@ public class Booking {
     private String paymentMethod;
     private String userId;
 
-    public Booking() {} // Required for Firestore
+    public Booking() {
+    } // Required for Firestore
 
     // Getters & Setters
-    public String getCinema() { return cinema; }
-    public void setCinema(String cinema) { this.cinema = cinema; }
+    public String getCinema() {
+        return cinema;
+    }
 
-    public String getTime() { return time; }
-    public void setTime(String time) { this.time = time; }
+    public void setCinema(String cinema) {
+        this.cinema = cinema;
+    }
 
-    public String getSeats() { return seats; }
-    public void setSeats(String seats) { this.seats = seats; }
+    public String getTime() {
+        return time;
+    }
 
-    public String getPrice() { return price; }
-    public void setPrice(String price) { this.price = price; }
+    public void setTime(String time) {
+        this.time = time;
+    }
 
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
+    public String getSeats() {
+        return seats;
+    }
 
-    public String getEmail() { return email; }
-    public void setEmail(String email) { this.email = email; }
+    public void setSeats(String seats) {
+        this.seats = seats;
+    }
 
-    public String getPaymentMethod() { return paymentMethod; }
-    public void setPaymentMethod(String paymentMethod) { this.paymentMethod = paymentMethod; }
+    public String getPrice() {
+        return price;
+    }
 
-    public String getUserId() { return userId; }
-    public void setUserId(String userId) { this.userId = userId; }
-=======
-    private String cinema, email, name, paymentMethod, price, seats, time, userId;
-    private long timestamp;
+    public void setPrice(String price) {
+        this.price = price;
+    }
 
-    public Booking() {}
+    public String getName() {
+        return name;
+    }
 
-    // Getters và Setters
-    public String getCinema() { return cinema; }
-    public void setCinema(String cinema) { this.cinema = cinema; }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    public String getEmail() { return email; }
-    public void setEmail(String email) { this.email = email; }
+    public String getEmail() {
+        return email;
+    }
 
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-    public String getPaymentMethod() { return paymentMethod; }
-    public void setPaymentMethod(String paymentMethod) { this.paymentMethod = paymentMethod; }
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
 
-    public String getPrice() { return price; }
-    public void setPrice(String price) { this.price = price; }
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
 
-    public String getSeats() { return seats; }
-    public void setSeats(String seats) { this.seats = seats; }
+    public String getUserId() {
+        return userId;
+    }
 
-    public String getTime() { return time; }
-    public void setTime(String time) { this.time = time; }
-
-    public String getUserId() { return userId; }
-    public void setUserId(String userId) { this.userId = userId; }
-
-    public long getTimestamp() { return timestamp; }
-    public void setTimestamp(long timestamp) { this.timestamp = timestamp; }
->>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 }

@@ -11,6 +11,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.projectfilm.R;
+import com.example.projectfilm.ui.admin.movie.MovieManage;
 
 public class admin extends AppCompatActivity {
     ImageView btn_manage_movies;

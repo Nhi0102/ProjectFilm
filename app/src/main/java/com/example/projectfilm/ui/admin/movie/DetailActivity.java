@@ -39,7 +39,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class DetailActivity extends AppCompatActivity {
-    EditText editTextTitle, editTextDescription, editTextPrices, editTextActors, editTextProducer;
+    EditText editTextTitle, editTextDescription, editTextActors, editTextProducer;
     TextView editTextYear;
     Spinner spinnerCountries, spinnerGenre;
     ImageView imageView, btnBack;
@@ -67,7 +67,6 @@ public class DetailActivity extends AppCompatActivity {
         editTextDescription = findViewById(R.id.editText2);
         spinnerGenre = findViewById(R.id.editText3);
         imageView = findViewById(R.id.imageView);
-        editTextPrices = findViewById(R.id.editText4);
         editTextActors = findViewById(R.id.editText0);
         editTextProducer = findViewById(R.id.editText6);
         editTextYear = findViewById(R.id.year);
@@ -106,13 +105,12 @@ public class DetailActivity extends AppCompatActivity {
             String title = editTextTitle.getText().toString().trim();
             String description = editTextDescription.getText().toString().trim();
             String genre = spinnerGenre.getSelectedItem().toString();
-            String pricesStr = editTextPrices.getText().toString().trim();
             String actors = editTextActors.getText().toString().trim();
             String producer = editTextProducer.getText().toString().trim();
             String year = editTextYear.getText().toString().trim();
             String country = spinnerCountries.getSelectedItem().toString();
 
-            if (title.isEmpty() || description.isEmpty() || genre.isEmpty() || pricesStr.isEmpty() || actors.isEmpty() || producer.isEmpty() || year.isEmpty()) {
+            if (title.isEmpty() || description.isEmpty() || genre.isEmpty() || actors.isEmpty() || producer.isEmpty() || year.isEmpty()) {
                 Toast.makeText(this, "Vui lòng điền đầy đủ thông tin!", Toast.LENGTH_SHORT).show();
                 return;
             }
@@ -120,7 +118,6 @@ public class DetailActivity extends AppCompatActivity {
             updatedData.put("title", title);
             updatedData.put("description", description);
             updatedData.put("genre", genre);
-            updatedData.put("prices", pricesStr);
             updatedData.put("actors", actors);
             updatedData.put("producer", producer);
             updatedData.put("year", year);
@@ -158,7 +155,6 @@ public class DetailActivity extends AppCompatActivity {
                         if (movie != null) {
                             editTextTitle.setText(movie.getTitle());
                             editTextDescription.setText(movie.getDescription());
-                            editTextPrices.setText(movie.getPrices());
                             editTextActors.setText(movie.getActors());
                             editTextProducer.setText(movie.getProducer());
                             editTextYear.setText(movie.getYear());
