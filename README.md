@@ -1,4 +1,4 @@
-# LẬP TRÌNH THIẾT BỊ DI ĐỘNG - NHÓM 4
+# LẬP TRÌNH THIẾT BỊ DI ĐỘNG - NHÓM 4 hihi
 
 **Khoa Công Nghệ Thông Tin - Học Viện Hàng Không Việt Nam**
 
