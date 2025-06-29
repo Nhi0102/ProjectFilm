@@ -1,8 +1,5 @@
-<<<<<<< HEAD
+
 # LẬP TRÌNH THIẾT BỊ DI ĐỘNG - NHÓM 4
-=======
-# LẬP TRÌNH THIẾT BỊ DI ĐỘNG - NHÓM 4 
->>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
 
 **Khoa Công Nghệ Thông Tin - Học Viện Hàng Không Việt Nam**
 
