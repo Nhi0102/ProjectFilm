@@ -1,5 +1,9 @@
 package com.example.projectfilm.ui.admin.dashboardFragment;
 
+<<<<<<< HEAD
+=======
+import android.content.Intent;
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,11 +14,18 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+<<<<<<< HEAD
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.projectfilm.R;
 import com.example.projectfilm.ui.admin.movie.MovieManageFragment;
 import com.example.projectfilm.ui.admin.user.UserManageFragment;
+=======
+
+import com.example.projectfilm.R;
+import com.example.projectfilm.ui.admin.user.UserManageFragment;
+import com.example.projectfilm.ui.admin.movie.MovieManage;
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
 
 public class DashboardFragment extends Fragment {
 
@@ -48,6 +59,7 @@ public class DashboardFragment extends Fragment {
             Log.d("DashboardFragment", "btn_manage_users found successfully.");
         }
 
+<<<<<<< HEAD
         // Navigate to Movie Management screen
         btnManageMovies.setOnClickListener(v -> {
             FragmentTransaction transaction = requireActivity()
@@ -66,6 +78,21 @@ public class DashboardFragment extends Fragment {
             transaction.replace(R.id.admin_fragment_container, new UserManageFragment());
             transaction.addToBackStack(null);
             transaction.commit();
+=======
+        // ✅ Mở Activity quản lý phim bằng Intent
+        btnManageMovies.setOnClickListener(v -> {
+            Intent intent = new Intent(requireContext(), MovieManage.class);
+            startActivity(intent);
+        });
+
+        // ✅ Mở Fragment quản lý người dùng như cũ
+        btnManageUsers.setOnClickListener(v -> {
+            requireActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.admin_fragment_container, new UserManageFragment())
+                    .addToBackStack(null)
+                    .commit();
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
         });
     }
 }

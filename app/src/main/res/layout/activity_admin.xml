@@ -34,7 +34,11 @@
         android:layout_height="150dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="360dp"
+<<<<<<< HEAD
         android:src="@drawable/img_film"
+=======
+        android:src="@drawable/bg_splash"
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 

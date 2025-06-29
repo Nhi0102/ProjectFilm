@@ -3,11 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     android:background="#B6D4E6"
+=======
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
     android:padding="16dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
+<<<<<<< HEAD
         android:layout_height="wrap_content"
         android:padding="30dp">
 
@@ -19,6 +23,17 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:visibility="gone" />
+=======
+        android:layout_height="wrap_content">
+
+        <ProgressBar
+            android:id="@+id/profileLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            style="?android:attr/progressBarStyleLarge" />
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
 
         <!-- Họ tên -->
         <com.google.android.material.textfield.TextInputLayout
@@ -26,9 +41,15 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="Họ tên"
+<<<<<<< HEAD
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
+=======
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etFullName"
@@ -42,11 +63,19 @@
             android:id="@+id/layoutEmail"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:layout_marginTop="16dp"
             android:hint="Email"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/layoutFullName">
+=======
+            android:hint="Email"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/layoutFullName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etEmail"
@@ -60,11 +89,19 @@
             android:id="@+id/layoutAddress"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:layout_marginTop="16dp"
             android:hint="Địa chỉ"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/layoutEmail">
+=======
+            android:hint="Địa chỉ"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/layoutEmail"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etAddress"
@@ -78,55 +115,95 @@
             android:id="@+id/btnSave"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:layout_marginTop="24dp"
             android:text="Lưu thay đổi"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/layoutAddress" />
+=======
+            android:text="Lưu thay đổi"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@id/layoutAddress"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
 
         <!-- Lịch sử đặt hàng -->
         <Button
             android:id="@+id/btnOrderHistory"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:layout_marginTop="12dp"
             android:text="Lịch sử đặt hàng"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnSave" />
+=======
+            android:text="Lịch sử đặt hàng"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@id/btnSave"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
 
         <!-- Hotline -->
         <Button
             android:id="@+id/btnHotline"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:layout_marginTop="12dp"
             android:text="Hotline: 19001900"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnOrderHistory" />
+=======
+            android:text="Hotline: 19001900"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@id/btnOrderHistory"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
 
         <!-- Giới thiệu bạn bè -->
         <Button
             android:id="@+id/btnInviteFriends"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:layout_marginTop="12dp"
             android:text="Giới thiệu bạn bè"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnHotline" />
+=======
+            android:text="Giới thiệu bạn bè"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@id/btnHotline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
 
         <!-- Nút đăng xuất -->
         <Button
             android:id="@+id/btnLogout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:layout_marginTop="24dp"
             android:text="Quay lại trang chủ"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnInviteFriends" />
+=======
+            android:text="Quay lại trang chủ"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@id/btnInviteFriends"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

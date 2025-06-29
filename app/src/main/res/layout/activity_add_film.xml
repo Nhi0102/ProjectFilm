@@ -13,7 +13,11 @@
         android:layout_width="33dp"
         android:layout_height="35dp"
         android:layout_marginTop="12dp"
+<<<<<<< HEAD
         android:src="@drawable/icon_back"
+=======
+        android:src="@drawable/ic_back_arrow"
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
         app:layout_constraintEnd_toStartOf="@+id/linearLayout"
         app:layout_constraintHorizontal_bias="0.192"
         app:layout_constraintStart_toStartOf="parent"
@@ -84,6 +88,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText2" />
 
+<<<<<<< HEAD
+=======
+    <EditText
+        android:id="@+id/editText4"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:hint="Prices"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText3" />
+
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
     <Spinner
         android:id="@+id/spinnerCountries"
         android:layout_width="match_parent"
@@ -91,7 +107,11 @@
         android:layout_centerInParent="true"
         android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
+<<<<<<< HEAD
         app:layout_constraintTop_toBottomOf="@+id/editText6" />
+=======
+        app:layout_constraintTop_toBottomOf="@+id/editText4" />
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
 
     <TextView
         android:id="@+id/year"

@@ -2,6 +2,10 @@ package com.example.projectfilm.ui.user.profile;
 
 import android.content.Intent;
 import android.os.Bundle;
+<<<<<<< HEAD
+=======
+import android.util.Log;
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,12 +16,21 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.projectfilm.MainActivity;
 import com.example.projectfilm.R;
+<<<<<<< HEAD
 import com.example.projectfilm.ui.auth.LoginActivity;
+=======
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
 import com.example.projectfilm.ui.user.booking.BookingHistoryActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.*;
 
+<<<<<<< HEAD
+=======
+import java.util.HashMap;
+import java.util.Map;
+
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
 public class ProfileActivity extends AppCompatActivity {
 
     private EditText etFullName, etEmail, etAddress;
@@ -41,10 +54,16 @@ public class ProfileActivity extends AppCompatActivity {
         btnHotline = findViewById(R.id.btnHotline);
         btnInviteFriends = findViewById(R.id.btnInviteFriends);
         Button btnSave = findViewById(R.id.btnSave);
+<<<<<<< HEAD
         btnLogout = findViewById(R.id.btnLogout);
         progressBar = findViewById(R.id.profileLoading);
 
         // Disable chỉnh sửa trong khi đang tải
+=======
+        btnLogout = findViewById(R.id.btnLogout); // đây là nút "quay lại trang chủ"
+        progressBar = findViewById(R.id.profileLoading);
+
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
         setEditingEnabled(false);
         progressBar.setVisibility(View.VISIBLE);
 
@@ -56,6 +75,7 @@ public class ProfileActivity extends AppCompatActivity {
             String uid = currentUser.getUid();
             userDoc = firestore.collection("users").document(uid);
 
+<<<<<<< HEAD
             // Lấy dữ liệu từ Firestore
             userDoc.get().addOnSuccessListener(snapshot -> {
                 progressBar.setVisibility(View.GONE);
@@ -83,6 +103,36 @@ public class ProfileActivity extends AppCompatActivity {
         // Các sự kiện nút
         btnOrderHistory.setOnClickListener(v ->
                 startActivity(new Intent(ProfileActivity.this, BookingHistoryActivity.class)));
+=======
+            userDoc.get()
+                    .addOnSuccessListener(snapshot -> {
+                        progressBar.setVisibility(View.GONE);
+                        if (snapshot.exists()) {
+                            etFullName.setText(snapshot.getString("name") != null ? snapshot.getString("name") : "");
+                            etEmail.setText(snapshot.getString("email") != null ? snapshot.getString("email") : "");
+                            etAddress.setText(snapshot.getString("address") != null ? snapshot.getString("address") : "");
+                        } else {
+                            Toast.makeText(this, "Không tìm thấy dữ liệu người dùng", Toast.LENGTH_SHORT).show();
+                        }
+                        setEditingEnabled(true);
+                    })
+                    .addOnFailureListener(e -> {
+                        progressBar.setVisibility(View.GONE);
+                        Toast.makeText(this, "Lỗi tải dữ liệu: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        setEditingEnabled(true);
+                    });
+        } else {
+            progressBar.setVisibility(View.GONE);
+            Toast.makeText(this, "Người dùng chưa đăng nhập", Toast.LENGTH_SHORT).show();
+            finish(); // quay về màn hình chính nếu user null
+        }
+
+        // Sự kiện các nút khác
+        btnOrderHistory.setOnClickListener(v -> {
+            Log.d("DEBUG_BUTTON", "Bấm nút Lịch sử đơn hàng");
+            startActivity(new Intent(this, BookingHistoryActivity.class));
+        });
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
 
         btnHotline.setOnClickListener(v ->
                 Toast.makeText(this, "Hotline: 19001900", Toast.LENGTH_SHORT).show());
@@ -92,6 +142,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         btnSave.setOnClickListener(v -> saveUserData());
 
+<<<<<<< HEAD
         btnLogout.setOnClickListener(v -> {
             FirebaseAuth.getInstance().signOut();
             Intent intent = new Intent(this, MainActivity.class);
@@ -99,10 +150,15 @@ public class ProfileActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         });
+=======
+        // Nút quay lại trang chủ (không đăng xuất, chỉ lưu và quay về)
+        btnLogout.setOnClickListener(v -> saveAndReturnHome());
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
     }
 
     private void saveUserData() {
         if (currentUser != null && userDoc != null) {
+<<<<<<< HEAD
             userDoc.update(
                     "name", etFullName.getText().toString().trim(),
                     "email", etEmail.getText().toString().trim(),
@@ -112,6 +168,75 @@ public class ProfileActivity extends AppCompatActivity {
             ).addOnFailureListener(e ->
                     Toast.makeText(this, "Lỗi lưu: " + e.getMessage(), Toast.LENGTH_SHORT).show()
             );
+=======
+            String name = etFullName.getText().toString().trim();
+            String email = etEmail.getText().toString().trim();
+            String address = etAddress.getText().toString().trim();
+
+            if (name.isEmpty() || email.isEmpty() || address.isEmpty()) {
+                Toast.makeText(this, "Vui lòng nhập đầy đủ họ tên, email và địa chỉ", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            Map<String, Object> data = new HashMap<>();
+            data.put("name", name);
+            data.put("email", email);
+            data.put("address", address);
+
+            Log.d("FIREBASE_DEBUG", "Lưu dữ liệu: " + data);
+
+            progressBar.setVisibility(View.VISIBLE);
+            userDoc.set(data, SetOptions.merge())
+                    .addOnSuccessListener(unused -> {
+                        progressBar.setVisibility(View.GONE);
+                        Toast.makeText(this, "Đã lưu thành công", Toast.LENGTH_SHORT).show();
+                    })
+                    .addOnFailureListener(e -> {
+                        progressBar.setVisibility(View.GONE);
+                        Log.e("FIREBASE_ERROR", "Lỗi lưu dữ liệu", e);
+                        Toast.makeText(this, "Lỗi lưu: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                    });
+        } else {
+            Log.e("FIREBASE_ERROR", "currentUser hoặc userDoc null");
+        }
+    }
+
+    private void saveAndReturnHome() {
+        if (currentUser != null && userDoc != null) {
+            String name = etFullName.getText().toString().trim();
+            String email = etEmail.getText().toString().trim();
+            String address = etAddress.getText().toString().trim();
+
+            if (name.isEmpty() || email.isEmpty() || address.isEmpty()) {
+                Toast.makeText(this, "Vui lòng nhập đầy đủ họ tên, email và địa chỉ", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            Map<String, Object> data = new HashMap<>();
+            data.put("name", name);
+            data.put("email", email);
+            data.put("address", address);
+
+            progressBar.setVisibility(View.VISIBLE);
+            userDoc.set(data, SetOptions.merge())
+                    .addOnSuccessListener(unused -> {
+                        progressBar.setVisibility(View.GONE);
+                        Toast.makeText(this, "Đã lưu và quay lại trang chủ", Toast.LENGTH_SHORT).show();
+
+                        Intent intent = new Intent(this, MainActivity.class);
+                        intent.putExtra("openHome", true); // mở HomeFragment
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
+                        finish();
+                    })
+                    .addOnFailureListener(e -> {
+                        progressBar.setVisibility(View.GONE);
+                        Log.e("FIREBASE_ERROR", "Lỗi lưu dữ liệu khi quay về", e);
+                        Toast.makeText(this, "Lỗi khi lưu: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                    });
+        } else {
+            Toast.makeText(this, "Không xác định được người dùng", Toast.LENGTH_SHORT).show();
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
         }
     }
 
@@ -124,6 +249,11 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
+<<<<<<< HEAD
         saveUserData(); // Tự lưu khi rời màn hình
+=======
+        // Không tự lưu khi rời màn hình nữa để tránh lưu sai thời điểm
+        // saveUserData();
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
     }
 }

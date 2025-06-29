@@ -5,6 +5,11 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+<<<<<<< HEAD
+=======
+import android.view.View;
+
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -75,4 +80,12 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                 });
     }
+<<<<<<< HEAD
+=======
+    public void goToLogin(View view) {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+        finish(); // Optional: nếu không muốn người dùng quay lại màn hình đăng ký bằng nút back
+    }
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
 }

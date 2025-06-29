@@ -1,5 +1,9 @@
 package com.example.projectfilm.adapter;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -13,7 +17,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.projectfilm.R;
 import com.example.projectfilm.data.model.Movie;
+<<<<<<< HEAD
 import com.example.projectfilm.ui.admin.DetailActivity;
+=======
+import com.example.projectfilm.ui.admin.movie.DetailActivity;
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
 
 import java.util.List;
 
@@ -64,4 +72,8 @@ public class adapter_all_film extends RecyclerView.Adapter<adapter_all_film.View
     public int getItemCount() {
         return filmList.size();
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8

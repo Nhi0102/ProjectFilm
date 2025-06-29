@@ -15,29 +15,54 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Rạp:"
+<<<<<<< HEAD
             android:textSize="16sp"
+=======
+            android:textSize="20sp"
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:text="Giờ chiếu:"
             android:textSize="16sp" />
+=======
+            android:layout_marginTop="10dp"
+            android:text="Giờ chiếu:"
+            android:textStyle="bold"
+            android:textSize="20sp" />
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
 
         <TextView
             android:id="@+id/textSeats"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:text="Ghế:"
             android:textSize="16sp" />
+=======
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:text="Ghế:"
+            android:textSize="20sp" />
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
 
         <TextView
             android:id="@+id/textPrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:text="Tổng tiền:"
             android:textSize="16sp" />
+=======
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:text="Tổng tiền:"
+            android:textSize="20sp" />
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
 
         <EditText
             android:id="@+id/editName"
@@ -81,7 +106,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Xác nhận thanh toán"
+<<<<<<< HEAD
             android:backgroundTint="#4CAF50"
+=======
+            android:backgroundTint="#B0D1E4"
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
             android:textColor="#FFF" />
     </LinearLayout>
 </ScrollView>
