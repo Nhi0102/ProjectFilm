@@ -25,9 +25,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.projectfilm.R;
+import com.example.projectfilm.data.model.Movie;
 import com.example.projectfilm.data.viewmodels.user.home.HomeViewModel;
+import com.example.projectfilm.ui.user.movie.MovieDetailFragment;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
+
+import java.util.List;
 
 public class HomeFragment extends Fragment {
 
@@ -67,27 +71,19 @@ public class HomeFragment extends Fragment {
         searchIcon.setOnClickListener(v -> toggleSearchBar());
 
         searchEditText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override public void onTextChanged(CharSequence s, int start, int before, int count) {
                 searchMovies(s.toString());
             }
-
-            @Override
-            public void afterTextChanged(Editable s) { }
+            @Override public void afterTextChanged(Editable s) {}
         });
 
-        // Xử lý Enter trên bàn phím
         searchEditText.setOnEditorActionListener((v, actionId, event) -> {
             if (actionId == EditorInfo.IME_ACTION_SEARCH
                     || (event != null && event.getKeyCode() == KeyEvent.KEYCODE_ENTER
                     && event.getAction() == KeyEvent.ACTION_DOWN)) {
 
                 String keyword = searchEditText.getText().toString().trim();
-                Log.d("SEARCH", "Search triggered: " + keyword);
-
                 hideKeyboard();
                 searchMovies(keyword);
                 return true;
@@ -98,7 +94,14 @@ public class HomeFragment extends Fragment {
         // Banner setup
         bannerViewPager = view.findViewById(R.id.bannerViewPager);
         bannerIndicator = view.findViewById(R.id.bannerIndicator);
-        bannerAdapter = new BannerAdapter();
+        bannerAdapter = new BannerAdapter(movie -> {
+            MovieDetailFragment detailFragment = MovieDetailFragment.newInstance(movie);
+            requireActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, detailFragment)
+                    .addToBackStack(null)
+                    .commit();
+        });
         bannerViewPager.setAdapter(bannerAdapter);
 
         // RecyclerView setup
@@ -110,17 +113,15 @@ public class HomeFragment extends Fragment {
 
         // ViewModel setup
         homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
-
         homeViewModel.getMovies().observe(getViewLifecycleOwner(), movies -> {
             trendingAdapter.setMovieList(movies);
-        });
+            bannerAdapter.setBannerData(movies);
 
-        homeViewModel.getBannerUrls().observe(getViewLifecycleOwner(), urls -> {
-            bannerAdapter.setImageUrls(urls);
+            // Tab indicator
             new TabLayoutMediator(bannerIndicator, bannerViewPager,
                     (tab, position) -> {}).attach();
 
-            // Setup margin cho dot indicator
+            // Dot spacing
             for (int i = 0; i < bannerIndicator.getTabCount(); i++) {
                 TabLayout.Tab tab = bannerIndicator.getTabAt(i);
                 if (tab != null) {
@@ -133,7 +134,7 @@ public class HomeFragment extends Fragment {
                 }
             }
 
-            // Auto slide banner
+            // Auto slide
             sliderRunnable = new Runnable() {
                 @Override
                 public void run() {
@@ -152,6 +153,7 @@ public class HomeFragment extends Fragment {
 
         return view;
     }
+
     private void toggleSearchBar() {
         if (isSearchVisible) {
             searchEditText.setVisibility(View.GONE);
@@ -165,14 +167,8 @@ public class HomeFragment extends Fragment {
     }
 
     private void searchMovies(String keyword) {
-        Log.d("SEARCH", "Searching for movie: " + keyword);
         trendingAdapter.filter(keyword);
-
-        if (keyword.isEmpty()) {
-            showBanner(true);
-        } else {
-            showBanner(false);
-        }
+        showBanner(keyword.isEmpty());
     }
 
     private void showBanner(boolean show) {

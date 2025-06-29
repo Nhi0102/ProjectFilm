@@ -1,7 +1,6 @@
 package com.example.projectfilm.ui.user.home;
 
 import android.content.Context;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,9 +38,6 @@ public class TrendingAdapter extends RecyclerView.Adapter<TrendingAdapter.MovieV
         notifyDataSetChanged();
     }
 
-    /**
-     * Lọc danh sách phim theo từ khóa (bỏ dấu + không phân biệt hoa thường).
-     */
     public void filter(String keyword) {
         if (keyword == null || keyword.trim().isEmpty()) {
             movieList = new ArrayList<>(originalList);
@@ -62,9 +58,6 @@ public class TrendingAdapter extends RecyclerView.Adapter<TrendingAdapter.MovieV
         notifyDataSetChanged();
     }
 
-    /**
-     * Bỏ dấu tiếng Việt + chuyển chữ thường
-     */
     public static String normalizeText(String str) {
         if (str == null) return "";
         String temp = Normalizer.normalize(str, Normalizer.Form.NFD);
@@ -96,40 +89,30 @@ public class TrendingAdapter extends RecyclerView.Adapter<TrendingAdapter.MovieV
     public void onBindViewHolder(@NonNull MovieViewHolder holder, int position) {
         Movie movie = movieList.get(position);
 
-        String movieId = movie.getMovieId();
-        Log.d("TrendingAdapter", "Clicked movieId: " + movieId);
-
+        // Load poster
         String posterUrl = movie.getPosterUrl();
         if (posterUrl != null && !posterUrl.isEmpty()) {
             Glide.with(context)
                     .load(posterUrl)
                     .placeholder(R.drawable.ic_menu_gallery)
                     .into(holder.moviePoster);
-        } else {
-            Log.e("TrendingAdapter", "posterUrl is null or empty for movieId: " + movieId);
         }
 
+        // Set title
         if (holder.movieTitle != null && movie.getTitle() != null) {
             holder.movieTitle.setText(movie.getTitle());
         }
 
+        // Sự kiện click: mở MovieDetailFragment với movie
         holder.itemView.setOnClickListener(v -> {
-            MovieDetailFragment fragment = new MovieDetailFragment();
-            Bundle bundle = new Bundle();
-            bundle.putString("movieId", movieId);
+            MovieDetailFragment fragment = MovieDetailFragment.newInstance(movie); // ✅ truyền Movie
 
             if (context instanceof AppCompatActivity) {
-                fragment.setArguments(bundle);
-
-                if (context instanceof com.example.projectfilm.MainActivity) {
-                    ((com.example.projectfilm.MainActivity) context).openFragment(fragment);
-                } else {
-                    ((AppCompatActivity) context).getSupportFragmentManager()
-                            .beginTransaction()
-                            .replace(R.id.fragment_container, fragment)
-                            .addToBackStack(null)
-                            .commit();
-                }
+                ((AppCompatActivity) context).getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment_container, fragment)
+                        .addToBackStack(null)
+                        .commit();
             }
         });
     }

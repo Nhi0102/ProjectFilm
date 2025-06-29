@@ -3,14 +3,13 @@ package com.example.projectfilm.ui.user.booking;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.example.projectfilm.R;
-
 import androidx.appcompat.app.AppCompatActivity;
+import com.example.projectfilm.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,12 +36,10 @@ public class SeatListActivity extends AppCompatActivity {
         textTotalPrice = findViewById(R.id.textTotalPrice);
         btnConfirm = findViewById(R.id.btnConfirm);
 
-        // Nhận dữ liệu từ TicketBooking
         Intent intent = getIntent();
         cinemaName = intent.getStringExtra("cinema");
         timeSlot = intent.getStringExtra("time");
 
-        // Tạo danh sách ghế: A1–A4, B1–B4, ..., E1–E4
         generateSeatButtons();
 
         btnConfirm.setOnClickListener(v -> {
@@ -51,7 +48,6 @@ public class SeatListActivity extends AppCompatActivity {
                 return;
             }
 
-            // Chuyển sang ThanhToanActivity
             Intent payIntent = new Intent(SeatListActivity.this, ThanhToanActivity.class);
             payIntent.putExtra("cinema", cinemaName);
             payIntent.putExtra("time", timeSlot);
@@ -63,20 +59,26 @@ public class SeatListActivity extends AppCompatActivity {
 
     private void generateSeatButtons() {
         String[] rows = {"A", "B", "C", "D", "E"};
-        int cols = 4;
+        int cols = 5;
+        gridSeats.setColumnCount(cols);
 
-        gridSeats.setColumnCount(cols); // cấu hình số cột của GridLayout
+        // Đổi dp sang pixel
+        float scale = getResources().getDisplayMetrics().density;
+        int seatSize = (int) (53 * scale); // 48dp
+        int seatMargin = (int) (6 * scale); // 6dp
 
         for (String row : rows) {
             for (int col = 1; col <= cols; col++) {
                 String seatId = row + col;
                 Button seatButton = new Button(this);
                 seatButton.setText(seatId);
+                seatButton.setTextSize(12);
                 seatButton.setBackgroundResource(R.drawable.bg_seat_available);
-                seatButton.setPadding(8, 8, 8, 8);
 
                 GridLayout.LayoutParams params = new GridLayout.LayoutParams();
-                params.setMargins(12, 12, 12, 12);
+                params.width = seatSize;
+                params.height = seatSize;
+                params.setMargins(seatMargin, seatMargin, seatMargin, seatMargin);
                 seatButton.setLayoutParams(params);
 
                 seatButton.setOnClickListener(v -> {
@@ -98,6 +100,6 @@ public class SeatListActivity extends AppCompatActivity {
     private void updateSeatInfo() {
         textSelectedSeats.setText(selectedSeats.size() + " Ghế: " + TextUtils.join(", ", selectedSeats));
         int total = selectedSeats.size() * SEAT_PRICE;
-        textTotalPrice.setText(" VND"+total);
+        textTotalPrice.setText(total + " VND");
     }
 }

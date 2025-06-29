@@ -12,7 +12,7 @@
         android:padding="8dp">
 
         <ImageView
-            android:id="@+id/imageMovie"
+            android:id="@+id/posterMovie"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:scaleType="centerCrop" />

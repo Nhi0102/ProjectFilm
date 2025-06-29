@@ -62,13 +62,14 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
     public static class MovieViewHolder extends RecyclerView.ViewHolder {
         ImageView posterImage;
-        TextView titleText, genreText;
+        TextView titleText, genreText; // genreText bạn có thể bỏ nếu không dùng
 
         public MovieViewHolder(View itemView) {
             super(itemView);
-            posterImage = itemView.findViewById(R.id.moviePoster);
-            titleText = itemView.findViewById(R.id.movieTitle);
-            genreText = itemView.findViewById(R.id.movieGenre);
+            posterImage = itemView.findViewById(R.id.moviePoster);    // ✅ đúng ID
+            titleText = itemView.findViewById(R.id.movieTitle);       // ✅ đúng ID
+            genreText = itemView.findViewById(R.id.textStatus);       // ✅ nếu muốn dùng dòng "Đang chiếu"
         }
     }
+
 }

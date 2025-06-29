@@ -58,7 +58,6 @@ public class MovieDetailFragment extends Fragment {
         TextView textTitle = view.findViewById(R.id.textTitle);
         TextView textDescription = view.findViewById(R.id.textDescription);
         TextView textGener = view.findViewById(R.id.textGener);
-        TextView textDuration = view.findViewById(R.id.textDuration);
         TextView textStatus = view.findViewById(R.id.textStatus);
         TextView textActors = view.findViewById(R.id.textActors);
         TextView textCountry = view.findViewById(R.id.textCountry);
@@ -72,7 +71,6 @@ public class MovieDetailFragment extends Fragment {
             textDescription.setText(movie.getDescription());
             textGener.setText("Thể loại: " + movie.getGenre());
             textStatus.setText("Trạng thái: " + movie.getStatus());
-            textDuration.setText("Thời lượng: 120 phút");
 
             textActors.setText("Diễn viên: " + movie.getActors());
             textCountry.setText("Quốc gia: " + movie.getCountry());

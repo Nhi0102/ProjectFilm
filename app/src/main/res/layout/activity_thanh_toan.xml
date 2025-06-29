@@ -2,92 +2,107 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
+    android:padding="24dp"
     android:background="#F8F8F8">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="30dp">
 
         <TextView
             android:id="@+id/textCinema"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Rạp:"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:text="🎬 Rạp:"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp" />
 
         <TextView
             android:id="@+id/textTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Giờ chiếu:"
+            android:text="🕒 Giờ chiếu:"
             android:textStyle="bold"
-            android:textSize="20sp" />
+            android:textSize="26sp"
+            android:layout_marginBottom="12dp" />
 
         <TextView
             android:id="@+id/textSeats"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:text="💺 Ghế:"
             android:textStyle="bold"
-            android:text="Ghế:"
-            android:textSize="20sp" />
+            android:textSize="26sp"
+            android:layout_marginBottom="12dp" />
 
         <TextView
             android:id="@+id/textPrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:text="💰 Tổng tiền:"
             android:textStyle="bold"
-            android:text="Tổng tiền:"
-            android:textSize="20sp" />
+            android:textSize="26sp"
+            android:layout_marginBottom="16dp" />
 
         <EditText
             android:id="@+id/editName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nhập tên"
-            android:layout_marginTop="16dp" />
+            android:textSize="20sp"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"
+            android:background="@android:drawable/editbox_background_normal" />
 
         <EditText
             android:id="@+id/editEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nhập email"
-            android:inputType="textEmailAddress" />
+            android:textSize="20sp"
+            android:padding="12dp"
+            android:inputType="textEmailAddress"
+            android:layout_marginBottom="24dp"
+            android:background="@android:drawable/editbox_background_normal" />
 
-        <!-- Radio chọn phương thức thanh toán -->
         <RadioGroup
             android:id="@+id/radioGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp">
+            android:layout_marginBottom="24dp">
 
             <RadioButton
                 android:id="@+id/radioMomo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ví MoMo" />
+                android:text="Ví MoMo"
+                android:textSize="20sp" />
 
             <RadioButton
                 android:id="@+id/radioBank"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Ngân hàng"
-                android:layout_marginStart="16dp" />
+                android:layout_marginStart="32dp"
+                android:textSize="20sp" />
         </RadioGroup>
 
         <Button
             android:id="@+id/btnConfirmPayment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:backgroundTint="#63B4D9"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
             android:text="Xác nhận thanh toán"
-            android:backgroundTint="#B0D1E4"
-            android:textColor="#FFF" />
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
     </LinearLayout>
 </ScrollView>

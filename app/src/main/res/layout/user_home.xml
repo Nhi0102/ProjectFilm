@@ -106,8 +106,8 @@
     <!-- Banner ViewPager2 -->
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/bannerViewPager"
-        android:layout_width="376dp"
-        android:layout_height="280dp"
+        android:layout_width="394dp"
+        android:layout_height="277dp"
         android:layout_margin="25dp"
         android:layout_marginTop="70dp"
         android:background="@drawable/rounded_bg"
@@ -120,21 +120,20 @@
     <!-- Tab Indicator -->
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/bannerIndicator"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="15dp"
+        android:layout_height="35dp"
         android:layout_marginTop="1dp"
-        android:layout_marginBottom="4dp"
-        android:padding="4dp"
         android:background="@android:color/transparent"
+        android:padding="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bannerViewPager"
         app:tabGravity="center"
         app:tabIndicator="@drawable/shape_gray"
         app:tabIndicatorFullWidth="false"
         app:tabIndicatorHeight="8dp"
         app:tabMode="fixed"
-        app:tabRippleColor="@android:color/transparent"
-        app:layout_constraintTop_toBottomOf="@id/bannerViewPager"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:tabRippleColor="@android:color/transparent" />
 
     <!-- Trending Header -->
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -161,16 +160,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/trendingViewAll"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="View All"
-            android:textColor="#A874E6"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="@id/trendingTitle"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/trendingTitle" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- RecyclerView Trending -->
