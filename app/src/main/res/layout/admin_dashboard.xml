@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:padding="24dp"
+    tools:context=".ui.admin.dashboardFragment.DashboardFragment">
+
+    <TextView
+        android:id="@+id/tv_welcome_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:text="Chào mừng bạn đến với trang quản trị👋"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="70dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" /> <androidx.constraintlayout.widget.Guideline
+    android:id="@+id/guideline_right"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:layout_constraintGuide_percent="0.9" /> <Button
+    android:id="@+id/btn_manage_movies"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:backgroundTint="#6200EE"
+    android:text="🎞️ Quản lý Phim"
+    android:textAllCaps="false"
+    android:textColor="#FFFFFF"
+    android:textSize="12sp"
+    app:layout_constraintDimensionRatio="1:1" app:layout_constraintEnd_toStartOf="@+id/btn_manage_users" app:layout_constraintHorizontal_chainStyle="packed" app:layout_constraintStart_toStartOf="@id/guideline_left"
+    app:layout_constraintBottom_toTopOf="@id/guideline_center_horizontal"
+    app:layout_constraintTop_toBottomOf="@id/tv_welcome_message"
+    app:layout_constraintVertical_bias="0.8" android:layout_marginEnd="16dp" /> <Button
+    android:id="@+id/btn_manage_users"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:backgroundTint="#03DAC5"
+    android:text="👥 Quản lý Người Dùng"
+    android:textAllCaps="false"
+    android:textColor="#000000"
+    android:textSize="12sp"
+    app:layout_constraintDimensionRatio="1:1" app:layout_constraintHorizontal_chainStyle="packed"
+    app:layout_constraintEnd_toEndOf="@id/guideline_right"
+    app:layout_constraintStart_toEndOf="@+id/btn_manage_movies" app:layout_constraintBottom_toTopOf="@id/guideline_center_horizontal"
+    app:layout_constraintTop_toBottomOf="@id/tv_welcome_message"
+    app:layout_constraintVertical_bias="0.8" />
+</androidx.constraintlayout.widget.ConstraintLayout>

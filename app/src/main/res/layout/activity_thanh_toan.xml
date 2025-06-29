@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#F8F8F8">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textCinema"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rạp:"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Giờ chiếu:"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textSeats"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ghế:"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tổng tiền:"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/editName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nhập tên"
+            android:layout_marginTop="16dp" />
+
+        <EditText
+            android:id="@+id/editEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nhập email"
+            android:inputType="textEmailAddress" />
+
+        <!-- Radio chọn phương thức thanh toán -->
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp">
+
+            <RadioButton
+                android:id="@+id/radioMomo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ví MoMo" />
+
+            <RadioButton
+                android:id="@+id/radioBank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ngân hàng"
+                android:layout_marginStart="16dp" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btnConfirmPayment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Xác nhận thanh toán"
+            android:backgroundTint="#4CAF50"
+            android:textColor="#FFF" />
+    </LinearLayout>
+</ScrollView>
