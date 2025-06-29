@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.projectfilm.R;
 import com.example.projectfilm.data.model.Movie;
+
 import com.example.projectfilm.ui.admin.movie.DetailActivity;
 
 import java.util.List;
@@ -65,4 +66,5 @@ public class adapter_all_film extends RecyclerView.Adapter<adapter_all_film.View
     public int getItemCount() {
         return filmList.size();
     }
+
 }

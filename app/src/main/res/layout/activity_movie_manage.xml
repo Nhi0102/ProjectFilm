@@ -13,7 +13,11 @@
         android:layout_width="33dp"
         android:layout_height="35dp"
         android:layout_marginTop="16dp"
+<<<<<<< HEAD
+        android:src="@drawable/icon_back"
+=======
         android:src="@drawable/ic_back_arrow"
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
         app:layout_constraintEnd_toStartOf="@+id/linearLayout"
         app:layout_constraintHorizontal_bias="0.192"
         app:layout_constraintStart_toStartOf="parent"

@@ -1,19 +1,12 @@
 package com.example.projectfilm.ui.user.home;
 
-import android.content.Context;
+
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
@@ -34,28 +27,18 @@ import com.google.android.material.tabs.TabLayoutMediator;
 import java.util.List;
 
 public class HomeFragment extends Fragment {
-
     private RecyclerView trendingRecyclerView;
     private TrendingAdapter trendingAdapter;
     private HomeViewModel homeViewModel;
-
     private ViewPager2 bannerViewPager;
     private BannerAdapter bannerAdapter;
     private TabLayout bannerIndicator;
-
     private Handler sliderHandler = new Handler(Looper.getMainLooper());
     private Runnable sliderRunnable;
-
-    private ImageView searchIcon;
-    private EditText searchEditText;
-    private boolean isSearchVisible = false;
-
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.user_home, container, false);
-
-        // Drawer toggle
         ImageView menuIcon = view.findViewById(R.id.menuIcon);
         menuIcon.setOnClickListener(v -> {
             DrawerLayout drawerLayout = requireActivity().findViewById(R.id.drawerLayout);
@@ -103,14 +86,11 @@ public class HomeFragment extends Fragment {
                     .commit();
         });
         bannerViewPager.setAdapter(bannerAdapter);
-
         // RecyclerView setup
         trendingRecyclerView = view.findViewById(R.id.trendingRecyclerView);
-        trendingRecyclerView.setLayoutManager(
-                new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+        trendingRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         trendingAdapter = new TrendingAdapter(getContext());
         trendingRecyclerView.setAdapter(trendingAdapter);
-
         // ViewModel setup
         homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
         homeViewModel.getMovies().observe(getViewLifecycleOwner(), movies -> {
@@ -126,8 +106,7 @@ public class HomeFragment extends Fragment {
                 TabLayout.Tab tab = bannerIndicator.getTabAt(i);
                 if (tab != null) {
                     View tabView = ((ViewGroup) bannerIndicator.getChildAt(0)).getChildAt(i);
-                    ViewGroup.MarginLayoutParams params =
-                            (ViewGroup.MarginLayoutParams) tabView.getLayoutParams();
+                    ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) tabView.getLayoutParams();
                     params.setMargins(12, 0, 12, 0);
                     tabView.setLayoutParams(params);
                     tabView.requestLayout();
@@ -150,7 +129,6 @@ public class HomeFragment extends Fragment {
             };
             sliderHandler.postDelayed(sliderRunnable, 5000);
         });
-
         return view;
     }
 
@@ -187,6 +165,6 @@ public class HomeFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        sliderHandler.removeCallbacks(sliderRunnable);
+        sliderHandler.removeCallbacks(sliderRunnable); // Dọn handler tránh memory leak
     }
 }

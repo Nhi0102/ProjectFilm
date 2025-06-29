@@ -10,6 +10,8 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+<<<<<<< HEAD
+=======
         <string name="user_data_not_found">Không tìm thấy dữ liệu người dùng.</string>
         <string name="error_loading_data">Lỗi tải dữ liệu: </string>
         <string name="user_not_logged_in">Người dùng chưa đăng nhập.</string>
@@ -20,4 +22,5 @@
         <string name="saved_and_returning_home">Đã lưu và quay lại trang chủ.</string>
         <string name="save_successful">Đã lưu thành công.</string>
         <string name="error_saving_data">Lỗi lưu: </string>
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
 </resources>

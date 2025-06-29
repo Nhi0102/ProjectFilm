@@ -17,6 +17,7 @@ import com.example.projectfilm.R;
 import com.example.projectfilm.data.model.Movie;
 import com.example.projectfilm.ui.user.movie.MovieDetailFragment;
 
+
 import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +34,7 @@ public class TrendingAdapter extends RecyclerView.Adapter<TrendingAdapter.MovieV
     }
 
     public void setMovieList(List<Movie> list) {
+
         this.originalList = list;
         this.movieList = new ArrayList<>(list);
         notifyDataSetChanged();
@@ -74,6 +76,7 @@ public class TrendingAdapter extends RecyclerView.Adapter<TrendingAdapter.MovieV
         public MovieViewHolder(@NonNull View itemView) {
             super(itemView);
             moviePoster = itemView.findViewById(R.id.moviePoster);
+
             movieTitle = itemView.findViewById(R.id.movieTitle);
         }
     }
@@ -89,6 +92,7 @@ public class TrendingAdapter extends RecyclerView.Adapter<TrendingAdapter.MovieV
     public void onBindViewHolder(@NonNull MovieViewHolder holder, int position) {
         Movie movie = movieList.get(position);
 
+
         // Load poster
         String posterUrl = movie.getPosterUrl();
         if (posterUrl != null && !posterUrl.isEmpty()) {
@@ -98,6 +102,7 @@ public class TrendingAdapter extends RecyclerView.Adapter<TrendingAdapter.MovieV
                     .into(holder.moviePoster);
         }
 
+
         // Set title
         if (holder.movieTitle != null && movie.getTitle() != null) {
             holder.movieTitle.setText(movie.getTitle());
@@ -105,6 +110,10 @@ public class TrendingAdapter extends RecyclerView.Adapter<TrendingAdapter.MovieV
 
         // Sự kiện click: mở MovieDetailFragment với movie
         holder.itemView.setOnClickListener(v -> {
+            MovieDetailFragment fragment = new MovieDetailFragment();
+            Bundle bundle = new Bundle();
+
+            bundle.putString("movieId", movieId);
             MovieDetailFragment fragment = MovieDetailFragment.newInstance(movie); // ✅ truyền Movie
 
             if (context instanceof AppCompatActivity) {
@@ -121,4 +130,6 @@ public class TrendingAdapter extends RecyclerView.Adapter<TrendingAdapter.MovieV
     public int getItemCount() {
         return movieList.size();
     }
+
 }
+

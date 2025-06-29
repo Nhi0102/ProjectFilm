@@ -31,7 +31,10 @@
 
         <!-- Auth -->
         <activity android:name=".ui.auth.LoginActivity"
+<<<<<<< HEAD
+=======
             android:theme="@style/Theme.ProjectFilm.NoActionBar"
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
             android:exported="false" />
         <activity android:name=".ui.auth.RegisterActivity"
             android:theme="@style/Theme.ProjectFilm.NoActionBar"
@@ -47,7 +50,10 @@
 
         <!-- Movies -->
         <activity android:name=".ui.user.movie.MovieListActivity"
+<<<<<<< HEAD
+=======
             android:theme="@style/Theme.ProjectFilm.NoActionBar"
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
             android:exported="false" />
 
         <!-- Booking -->
@@ -62,6 +68,8 @@
         <activity android:name=".ui.user.booking.BookingHistoryActivity"
             android:theme="@style/Theme.ProjectFilm.NoActionBar" />
 
+<<<<<<< HEAD
+=======
         <activity android:name=".ui.admin.movie.DetailActivity"
             android:theme="@style/Theme.ProjectFilm.NoActionBar"
             android:exported="false" />
@@ -71,6 +79,7 @@
         <activity android:name=".ui.admin.movie.AddFilm"
             android:theme="@style/Theme.ProjectFilm.NoActionBar"
             android:exported="false" />
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
     </application>
 
 </manifest>

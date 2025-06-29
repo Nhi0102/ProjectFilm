@@ -10,10 +10,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.projectfilm.ui.user.profile.ProfileActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -29,7 +26,6 @@ public class ThanhToanActivity extends AppCompatActivity {
     private FirebaseUser currentUser;
     private FirebaseFirestore firestore;
 
-    private String cinema, time, seats, price;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,18 +50,17 @@ public class ThanhToanActivity extends AppCompatActivity {
 
         // Nhận dữ liệu từ SeatListActivity
         Intent intent = getIntent();
-        cinema = intent.getStringExtra("cinema");
-        time = intent.getStringExtra("time");
-        seats = intent.getStringExtra("seats");
-        price = intent.getStringExtra("price");
-
+        String cinema = intent.getStringExtra("cinema");
+        String time = intent.getStringExtra("time");
+        String seats = intent.getStringExtra("seats");
+        String price = intent.getStringExtra("price");
         // Hiển thị dữ liệu
         textCinema.setText("Rạp: " + cinema);
         textTime.setText("Giờ chiếu: " + time);
         textSeats.setText("Ghế: " + seats);
         textPrice.setText("Tổng tiền: " + price);
 
-        // Lấy tên, email, address từ Firestore
+
         if (currentUser != null) {
             String uid = currentUser.getUid();
             firestore.collection("users").document(uid)
@@ -74,59 +69,43 @@ public class ThanhToanActivity extends AppCompatActivity {
                         if (snapshot.exists()) {
                             String name = snapshot.getString("name");
                             String email = snapshot.getString("email");
-                            String address = snapshot.getString("address");
+                            editName.setText(name != null ? name : "");
+                            editEmail.setText(email != null ? email : "");
 
-                            // Kiểm tra nếu thiếu thông tin
-                            if (name == null || name.isEmpty() ||
-                                    email == null || email.isEmpty() ||
-                                    address == null || address.isEmpty()) {
-                                Toast.makeText(this, "Vui lòng hoàn thiện thông tin cá nhân trước khi thanh toán", Toast.LENGTH_LONG).show();
-                                Intent profileIntent = new Intent(this, ProfileActivity.class);
-                                profileIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                                startActivity(profileIntent);
-                                finish();
-                            } else {
-                                // Đổ dữ liệu lên UI và khóa chỉnh sửa
-                                editName.setText(name);
-                                editEmail.setText(email);
-                                editName.setEnabled(false);
-                                editEmail.setEnabled(false);
-                            }
-                        } else {
-                            Toast.makeText(this, "Không tìm thấy thông tin người dùng, vui lòng cập nhật hồ sơ.", Toast.LENGTH_LONG).show();
-                            Intent profileIntent = new Intent(this, ProfileActivity.class);
-                            profileIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                            startActivity(profileIntent);
-                            finish();
+                            editName.setEnabled(false);  // Khóa chỉnh sửa
+                            editEmail.setEnabled(false);
                         }
                     })
-                    .addOnFailureListener(e -> {
-                        Toast.makeText(this, "Lỗi tải thông tin: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                        finish();
-                    });
+                    .addOnFailureListener(e ->
+                            Toast.makeText(this, "Lỗi tải thông tin người dùng", Toast.LENGTH_SHORT).show()
+                    );
+
         } else {
             Toast.makeText(this, "Bạn chưa đăng nhập", Toast.LENGTH_SHORT).show();
             finish();
             return;
         }
 
-        // Xác nhận thanh toán
+
+        // Sự kiện xác nhận
         btnConfirmPayment.setOnClickListener(v -> {
+            String name = editName.getText().toString().trim();
+            String email = editEmail.getText().toString().trim();
             int checkedId = radioGroup.getCheckedRadioButtonId();
-            if (checkedId == -1) {
-                Toast.makeText(this, "Vui lòng chọn phương thức thanh toán", Toast.LENGTH_SHORT).show();
+
+            if (name.isEmpty() || email.isEmpty() || checkedId == -1) {
+                Toast.makeText(this, "Vui lòng điền đầy đủ thông tin", Toast.LENGTH_SHORT).show();
                 return;
             }
 
             String paymentMethod = (checkedId == R.id.radioMomo) ? "Ví MoMo" : "Ngân hàng";
-
             Intent confirmIntent = new Intent(ThanhToanActivity.this, ThanhToanThanhCongActivity.class);
             confirmIntent.putExtra("cinema", cinema);
             confirmIntent.putExtra("time", time);
             confirmIntent.putExtra("seats", seats);
             confirmIntent.putExtra("price", price);
-            confirmIntent.putExtra("name", editName.getText().toString().trim());
-            confirmIntent.putExtra("email", editEmail.getText().toString().trim());
+            confirmIntent.putExtra("name", name);
+            confirmIntent.putExtra("email", email);
             confirmIntent.putExtra("paymentMethod", paymentMethod);
             startActivity(confirmIntent);
         });

@@ -3,6 +3,29 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+<<<<<<< HEAD
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_vertical" android:padding="24dp"
+    tools:context=".RegisterActivity"> <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Đăng ký tài khoản mới"
+    android:textSize="32sp"
+    android:textStyle="bold"
+    android:textColor="@android:color/black"
+    android:layout_marginBottom="48dp"
+    android:layout_gravity="center_horizontal"/> <EditText
+    android:id="@+id/emailEditText"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="Email"
+    android:inputType="textEmailAddress"
+    android:padding="12dp"
+    android:layout_marginBottom="16dp"
+    android:background="@drawable/rounded_bg"/> <EditText
+=======
     android:background="@drawable/gradient_background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -46,6 +69,7 @@
         android:padding="12dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/rounded_bg"/> <EditText
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
     android:id="@+id/passwordEditText"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -68,8 +92,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="Đã có tài khoản? Đăng nhập"
+<<<<<<< HEAD
+        android:textColor="?attr/colorPrimary"
+=======
         android:textSize="18sp"
         android:textColor="@color/black"
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
         android:layout_marginTop="24dp"
         android:clickable="true"
         android:onClick="goToLogin"

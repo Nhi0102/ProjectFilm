@@ -16,6 +16,13 @@
             android:id="@+id/textCinema"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="Rạp:"
+<<<<<<< HEAD
+            android:textSize="16sp"
+=======
+            android:textSize="20sp"
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
+            android:textStyle="bold" />
             android:text="🎬 Rạp:"
             android:textSize="26sp"
             android:textStyle="bold"
@@ -25,8 +32,16 @@
             android:id="@+id/textTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
+            android:text="Giờ chiếu:"
+            android:textSize="16sp" />
+=======
+            android:layout_marginTop="10dp"
+            android:text="Giờ chiếu:"
             android:text="🕒 Giờ chiếu:"
             android:textStyle="bold"
+            android:textSize="20sp" />
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
             android:textSize="26sp"
             android:layout_marginBottom="12dp" />
 
@@ -34,8 +49,16 @@
             android:id="@+id/textSeats"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
+            android:text="Ghế:"
+            android:textSize="16sp" />
+=======
+            android:layout_marginTop="10dp"
             android:text="💺 Ghế:"
             android:textStyle="bold"
+            android:text="Ghế:"
+            android:textSize="20sp" />
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
             android:textSize="26sp"
             android:layout_marginBottom="12dp" />
 
@@ -43,8 +66,16 @@
             android:id="@+id/textPrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
+            android:text="Tổng tiền:"
+            android:textSize="16sp" />
+=======
+            android:layout_marginTop="10dp"
             android:text="💰 Tổng tiền:"
             android:textStyle="bold"
+            android:text="Tổng tiền:"
+            android:textSize="20sp" />
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
             android:textSize="26sp"
             android:layout_marginBottom="16dp" />
 
@@ -101,6 +132,12 @@
             android:paddingTop="16dp"
             android:paddingBottom="16dp"
             android:text="Xác nhận thanh toán"
+<<<<<<< HEAD
+            android:backgroundTint="#4CAF50"
+=======
+            android:backgroundTint="#B0D1E4"
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
+            android:textColor="#FFF" />
             android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold" />

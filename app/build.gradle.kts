@@ -32,8 +32,11 @@ android {
     }
     buildFeatures {
         viewBinding = true
+<<<<<<< HEAD
+=======
         dataBinding = true
 
+>>>>>>> 1cc6dedaea0ceef2fffdf93b90c74e6dde435aa8
     }
 }
 

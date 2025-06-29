@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import android.view.View;
-
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -77,9 +75,6 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                 });
     }
-    public void goToLogin(View view) {
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
-        finish(); // Optional: nếu không muốn người dùng quay lại màn hình đăng ký bằng nút back
-    }
+
+
 }

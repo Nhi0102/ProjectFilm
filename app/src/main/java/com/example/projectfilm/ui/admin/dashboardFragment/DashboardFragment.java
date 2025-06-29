@@ -1,6 +1,5 @@
 package com.example.projectfilm.ui.admin.dashboardFragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,9 +11,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import androidx.fragment.app.FragmentTransaction;
+
 import com.example.projectfilm.R;
+import com.example.projectfilm.ui.admin.movie.MovieManageFragment;
 import com.example.projectfilm.ui.admin.user.UserManageFragment;
-import com.example.projectfilm.ui.admin.movie.MovieManage;
+
+
 
 public class DashboardFragment extends Fragment {
 
@@ -48,19 +51,26 @@ public class DashboardFragment extends Fragment {
             Log.d("DashboardFragment", "btn_manage_users found successfully.");
         }
 
-        // ✅ Mở Activity quản lý phim bằng Intent
+
+        // Navigate to Movie Management screen
         btnManageMovies.setOnClickListener(v -> {
-            Intent intent = new Intent(requireContext(), MovieManage.class);
-            startActivity(intent);
+            FragmentTransaction transaction = requireActivity()
+                    .getSupportFragmentManager()
+                    .beginTransaction();
+            transaction.replace(R.id.admin_fragment_container, new MovieManageFragment());
+            transaction.addToBackStack(null);
+            transaction.commit();
         });
 
-        // ✅ Mở Fragment quản lý người dùng như cũ
+        // Navigate to User Management screen
         btnManageUsers.setOnClickListener(v -> {
-            requireActivity().getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.admin_fragment_container, new UserManageFragment())
-                    .addToBackStack(null)
-                    .commit();
+            FragmentTransaction transaction = requireActivity()
+                    .getSupportFragmentManager()
+                    .beginTransaction();
+            transaction.replace(R.id.admin_fragment_container, new UserManageFragment());
+            transaction.addToBackStack(null);
+            transaction.commit();
+
         });
     }
 }
