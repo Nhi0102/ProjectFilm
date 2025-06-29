@@ -8,7 +8,6 @@ public class Movie {
     private String description;
     private String genre;
     private String posterUrl;
-    private String prices;
     private String status;
     private String actors;
     private String producer;
@@ -36,10 +35,6 @@ public class Movie {
 
     public String getPosterUrl() { return posterUrl; }
     public void setPosterUrl(String posterUrl) { this.posterUrl = posterUrl; }
-
-    public String getPrices() { return prices; }
-    public void setPrices(String prices) { this.prices = prices; }
-
     public String getStatus() { return status; }
     public void setStatus(String status) { this.status = status; }
 
